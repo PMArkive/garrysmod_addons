@@ -8,17 +8,56 @@ local function asdf()
 	SWEP.CanBuy = nil -- Remove it from the T menu.
 
 	local SWEP = util.WeaponForClass("weapon_zm_shotgun") -- Auto Shotty
-	SWEP.Primary.Cone = 0.15
-	SWEP.Primary.Damage = 10
+	if SWEP then
+		SWEP.Primary.Cone = 0.15
+		SWEP.Primary.Damage = 10
+		SWEP.AutoSpawnable = false
+	end
 	
+	local ENT = scripted_ents.GetStored("item_box_buckshot_ttt")
+	if SWEP then
+		ENT.AutoSpawnable = false
+	end
+	
+	local SWEP = util.WeaponForClass("weapon_ttt_g3") -- Stupid fucking gun
+	if SWEP then
+		SWEP.AutoSpawnable = false
+	end
+
+	local SWEP = util.WeaponForClass("weapon_ttt_sg550") -- Stupid fucking gun2
+	if SWEP then
+		SWEP.AutoSpawnable = false
+	end
+	
+	local SWEP = util.WeaponForClass("weapon_ttt_aug") -- Stupid fucking gun3
+	if SWEP then
+		SWEP.AutoSpawnable = false
+	end
+	
+	local SWEP = util.WeaponForClass("weapon_ttt_p90") -- Stupid fucking gun4
+	if SWEP then
+		SWEP.AutoSpawnable = false
+	end
+	
+	local SWEP = util.WeaponForClass("weapon_ttt_p228g") -- Stupid fucking gun5
+	if SWEP then
+		SWEP.AutoSpawnable = false
+	end
+	
+	local SWEP = util.WeaponForClass("weapon_ttt_sg552") -- Stupid fucking gun6
+	if SWEP then
+		SWEP.AutoSpawnable = false
+	end
+
 	local SWEP = util.WeaponForClass("weapon_zm_sledge") -- HUGE
 	SWEP.Primary.Damage = 8
 	SWEP.Primary.Delay = 0.08
 	SWEP.Primary.DefaultClip = 150
 	SWEP.Primary.Recoil = 1.85
+	SWEP.AutoSpawnable = false
 	
 	local SWEP = util.WeaponForClass("weapon_zm_rifle")
-	SWEP.Primary.Cone = 0.004
+	SWEP.Primary.Cone = 0 --.004
 	
 	local SWEP = util.WeaponForClass("weapon_ttt_glock")
 	SWEP.Primary.Recoil	= 0.85
@@ -62,4 +101,4 @@ if SH_TTT_WEAPON_OVERRIDES then
 	asdf()
 end
 
-hook.Add("PostGamemodeLoaded", "sh_ttt_weapons_overrides.lua", asdf)
+hook.Add("InitPostEntity", "sh_ttt_weapons_overrides.lua", asdf)
